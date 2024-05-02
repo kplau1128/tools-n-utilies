@@ -1,0 +1,16 @@
+{
+    "result_patterns": {
+        "Throughput (tokens/second)": "Throughput \\(including tokenization\\) = (\\d+\\.\\d+) tokens/second",
+        "Number of HPU graphs": "Number of HPU graphs                = (\\d+)",
+        "Memory allocated (GB)": "Memory allocated                    = (\\d+\\.\\d+) GB",
+        "Max memory allocated (GB)": "Max memory allocated                = (\\d+\\.\\d+) GB",
+        "Total memory available (GB)": "Total memory available              = (\\d+\\.\\d+) GB",
+        "Graph compilation duration (seconds)": "Graph compilation duration          = (\\d+\\.\\d+) seconds"
+    },
+    "error_patterns": {
+        "RuntimeError": "RuntimeError: (.*)",
+        "FileNotFoundError": "FileNotFoundError: (.*)",
+        "AttributeError": "AttributeError: (.*)",
+        "TypeError": "TypeError: (.*)"
+    }
+}
