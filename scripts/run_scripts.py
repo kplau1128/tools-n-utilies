@@ -36,23 +36,33 @@ def parse_output(output, patterns):
 
 # main()
 def main(args):
-    with open(args.scripts_file, "r") as file:
+    scripts_file = args.scripts_file
+    patterns_file = args.patterns_file
+    output_file = args.output_file or "results.csv"
+
+    with open(scripts_file, "r") as file:
         scripts_data = json.load(file)
 
-    with open(args.patterns_file, "r") as file:
+    with open(patterns_file, "r") as file:
         patterns_data = json.load(file)
 
     scripts = scripts_data.get("scripts", [])
     result_patterns = patterns_data.get("result_patterns", {})
     error_patterns = patterns_data.get("error_patterns", {})
 
-    output_file = args.output_file
-
     print(f"Running {len(scripts)} scripts:")
 
     with open(output_file, "w", newline="") as csvfile:
+        extra_arguments_keys = set()
+        for script in scripts:
+            extra_arguments_list = script.get("extra_arguments", [])
+            for extra_arguments in extra_arguments_list:
+                extra_arguments_keys.update(extra_arguments.keys())
+
+        header = ["Model"] + sorted(extra_arguments_keys) + list(result_patterns.keys()) + ["Error"]
+
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(["Model", "Extra Arguments"] + list(result_patterns.keys()) + ["Errors"])
+        csv_writer.writerow(header)
 
         for script in scripts:
             script_name = script.get("name", "")
@@ -62,19 +72,32 @@ def main(args):
             env = script.get("env", {})
 
             print(f"---> {script_name} with {len(extra_arguments_list)} set(s) of extra arguments ...")
-            # Check if all mandatory arguments are provided
-            # if not all(arg in os.environ for arg in mandatory_arguments):
-            #     print(f"Error: Missing mandatory arguments for script '{script_name}'")
-            #     continue
+            print(f"      Default Argument:")
+            print(f"            {default_arguments}")
 
+            # Check if all default arguments are provided
+            # if not all(arg in default_arguments for arg in default_arguments):
+            #     print(f"Error: Missing default arguments for script '{script_name}'")
+            #     continue
+            # Check if default_arguments list is not empty
+            if not default_arguments:
+                print(f"Warning: No default arguments provided for script '{script_name}'")
+                continue
+
+            # Combine default and extra arguments, if provided
             if extra_arguments_list:
                 for extra_arguments in extra_arguments_list:
-                    # Combine deafult and extra arguments
-                    arguments = default_arguments + extra_arguments
+                    #arguments = default_arguments + ["--{} {}".format(key, value) for key, value in extra_arguments.items()]
+                    arguments = default_arguments.copy() # make a copy of default_arguments
+                    for key, value in extra_arguments.items():
+                        arguments.append("--{}".format(key))
+                        arguments.append(value)
+                    # Fill extra arguments columns with values or empty strings if not provided
+                    extra_arguments_row = [extra_arguments.get(key, "") for key in sorted(extra_arguments_keys)]
+                    
                     print(f"    ... Running with: {extra_arguments}")
-
                     output, error = run_script_with_args(script_path, arguments, env=env)
-                    result_row = [script_name, ", ".join(extra_arguments)]
+                    result_row = [script_name] + extra_arguments_row
 
                     if output:
                         result_dict = parse_output(output, result_patterns)
@@ -96,7 +119,7 @@ def main(args):
                 arguments = default_arguments
 
                 output, error = run_script_with_args(script_path, arguments, env=env)
-                result_row = [script_name, ""]
+                result_row = [script_name] + [""] * len(extra_arguments_keys)
 
                 if output:
                     result_dict = parse_output(output, result_patterns)
@@ -117,8 +140,8 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run scripts with various arguments and process console output, then store results in CSV.")
 
-    parser.add_argument("scripts_file", help="JSON file containing script configuration")
-    parser.add_argument("patterns_file", help="JSON file containing result and error patterns")
+    parser.add_argument("--scripts_file", required=True, help="JSON file containing script configuration")
+    parser.add_argument("--patterns_file", required=True, help="JSON file containing result and error patterns")
     parser.add_argument("-o", "--output_file", default="results.csv", help="Output CSV file path (default: results.csv)")
     args = parser.parse_args()
 

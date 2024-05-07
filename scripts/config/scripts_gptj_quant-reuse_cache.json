@@ -15,11 +15,11 @@
                 "--bf16"
             ],
             "extra_arguments": [
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "1"
-                ]
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "1"
+                }
             ]
         },
         {
@@ -38,96 +38,96 @@
                 "--fp8"
             ],
             "extra_arguments": [
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "1024"
-                ],
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "640"
-                ],
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "320"
-                ],
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "256"
-                ],
-                [
-                    "--max_input_tokens", "2048",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "120"
-                ],
-                [
-                    "--max_input_tokens", "1024",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "120"
-                ],
-                [
-                    "--max_input_tokens", "368",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "120"
-                ],
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "2048",
-                    "--batch_size", "120"
-                ],
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "1024",
-                    "--batch_size", "120"
-                ],
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "624",
-                    "--batch_size", "120"
-                ],
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "512",
-                    "--batch_size", "120"
-                ],
-                [
-                    "--max_input_tokens", "128",
-                    "--max_new_tokens", "256",
-                    "--batch_size", "120"
-                ],
-                [
-                    "--max_input_tokens", "2048",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "64"
-                ],
-                [
-                    "--max_input_tokens", "1024",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "64"
-                ],
-                [
-                    "--max_input_tokens", "512",
-                    "--max_new_tokens", "128",
-                    "--batch_size", "64"
-                ],
-                [
-                    "--max_input_tokens", "2048",
-                    "--max_new_tokens", "2048",
-                    "--batch_size", "64"
-                ],
-                [
-                    "--max_input_tokens", "1024",
-                    "--max_new_tokens", "1024",
-                    "--batch_size", "64"
-                ],
-                [
-                    "--max_input_tokens", "512",
-                    "--max_new_tokens", "512",
-                    "--batch_size", "64"
-                ]
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "1024"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "640"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "320"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "256"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "128",
+                    "batch_size": "120"
+                },
+                {
+                    "max_input_tokens": "1024",
+                    "max_new_tokens": "128",
+                    "batch_size": "120"
+                },
+                {
+                    "max_input_tokens": "368",
+                    "max_new_tokens": "128",
+                    "batch_size": "120"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "2048",
+                    "batch_size": "120"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "1024",
+                    "batch_size": "120"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "624",
+                    "batch_size": "120"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "512",
+                    "batch_size": "120"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "256",
+                    "batch_size": "120"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "128",
+                    "batch_size": "64"
+                },
+                {
+                    "max_input_tokens": "1024",
+                    "max_new_tokens": "128",
+                    "batch_size": "64"
+                },
+                {
+                    "max_input_tokens": "512",
+                    "max_new_tokens": "128",
+                    "batch_size": "64"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "64"
+                },
+                {
+                    "max_input_tokens": "1024",
+                    "max_new_tokens": "1024",
+                    "batch_size": "64"
+                },
+                {
+                    "max_input_tokens": "512",
+                    "max_new_tokens": "512",
+                    "batch_size": "64"
+                }
             ]
         }
     ]

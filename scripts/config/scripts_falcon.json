@@ -1,12 +1,12 @@
 {
     "scripts": [
         {
-            "name": "GPT-J-6B",
+            "name": "Falcon-7B",
             "env": {
             },
             "path": "../../../optimum-habana/examples/text-generation/run_generation.py",
             "default_arguments": [
-                "--model_name_or_path", "EleutherAI/gpt-j-6b",
+                "--model_name_or_path", "tiiuae/falcon-7b",
                 "--use_hpu_graphs",
                 "--use_kv_cache",
                 "--limit_hpu_graphs",
