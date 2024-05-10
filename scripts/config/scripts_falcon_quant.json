@@ -3,7 +3,7 @@
         {
             "name": "Falcon-7B Measure",
             "env": {
-                "QUANT_CONFIG": "../../../optimum-habana/examples/text-generation/quantization_config/maxabs_measure.json"
+                "QUANT_CONFIG": "../../../optimum-habana/examples/text-generation/quantization_config/maxabs_measure_include_outputs.json"
             },
             "path": "../../../optimum-habana/examples/text-generation/run_generation.py",
             "default_arguments": [
@@ -29,7 +29,7 @@
             },
             "path": "../../../optimum-habana/examples/text-generation/run_generation.py",
             "default_arguments": [
-                "--model_name_or_path", "meta-llama/Llama-2-7b-hf",
+                "--model_name_or_path", "tiiuae/falcon-7b",
                 "--use_hpu_graphs",
                 "--use_kv_cache",
                 "--limit_hpu_graphs",
@@ -45,12 +45,12 @@
                 {
                     "max_input_tokens": "128",
                     "max_new_tokens": "128",
-                    "batch_size": "640"
+                    "batch_size": "928"
                 },
                 {
                     "max_input_tokens": "128",
                     "max_new_tokens": "128",
-                    "batch_size": "320"
+                    "batch_size": "640"
                 },
                 {
                     "max_input_tokens": "128",
@@ -58,44 +58,19 @@
                     "batch_size": "256"
                 },
                 {
-                    "max_input_tokens": "2048",
-                    "max_new_tokens": "128",
-                    "batch_size": "120"
-                },
-                {
-                    "max_input_tokens": "1024",
-                    "max_new_tokens": "128",
-                    "batch_size": "120"
-                },
-                {
-                    "max_input_tokens": "368",
-                    "max_new_tokens": "128",
-                    "batch_size": "120"
-                },
-                {
                     "max_input_tokens": "128",
                     "max_new_tokens": "2048",
                     "batch_size": "120"
                 },
                 {
                     "max_input_tokens": "128",
-                    "max_new_tokens": "1024",
-                    "batch_size": "120"
+                    "max_new_tokens": "2048",
+                    "batch_size": "64"
                 },
                 {
                     "max_input_tokens": "128",
-                    "max_new_tokens": "624",
-                    "batch_size": "120"
-                },
-                {
-                    "max_input_tokens": "128",
-                    "max_new_tokens": "512",
-                    "batch_size": "120"
-                },
-                {
-                    "max_input_tokens": "128",
-                    "max_new_tokens": "256",
-                    "batch_size": "120"
+                    "max_new_tokens": "2048",
+                    "batch_size": "32"
                 },
                 {
                     "max_input_tokens": "2048",
@@ -103,14 +78,9 @@
                     "batch_size": "64"
                 },
                 {
-                    "max_input_tokens": "1024",
+                    "max_input_tokens": "2048",
                     "max_new_tokens": "128",
-                    "batch_size": "64"
-                },
-                {
-                    "max_input_tokens": "512",
-                    "max_new_tokens": "128",
-                    "batch_size": "64"
+                    "batch_size": "32"
                 },
                 {
                     "max_input_tokens": "2048",
@@ -118,14 +88,14 @@
                     "batch_size": "64"
                 },
                 {
-                    "max_input_tokens": "1024",
-                    "max_new_tokens": "1024",
-                    "batch_size": "64"
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "60"
                 },
                 {
-                    "max_input_tokens": "512",
-                    "max_new_tokens": "512",
-                    "batch_size": "64"
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "32"
                 }
             ]
         }
