@@ -11,8 +11,7 @@
                 "--use_kv_cache",
                 "--reuse_cache",
                 "--limit_hpu_graphs",
-                "--bf16",
-                "--fp8"
+                "--bf16"
             ],
             "extra_arguments": [
                 {
@@ -74,6 +73,11 @@
                     "max_input_tokens": "2048",
                     "max_new_tokens": "2048",
                     "batch_size": "60"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "56"
                 },
                 {
                     "max_input_tokens": "2048",
