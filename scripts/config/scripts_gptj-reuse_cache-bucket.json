@@ -1,0 +1,101 @@
+{
+    "scripts": [
+        {
+            "name": "GPT-J-6B",
+            "env": {
+            },
+            "path": "../../../optimum-habana/examples/text-generation/run_generation.py",
+            "default_arguments": [
+                "--model_name_or_path", "EleutherAI/gpt-j-6b",
+                "--use_hpu_graphs",
+                "--use_kv_cache",
+                "--reuse_cache",
+                "--limit_hpu_graphs",
+                "--bf16"
+            ],
+            "extra_arguments": [
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "1"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "1024"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "928"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "640"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "512"
+                },
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "256"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "2048",
+                    "batch_size": "120"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "2048",
+                    "batch_size": "64"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "2048",
+                    "batch_size": "32"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "128",
+                    "batch_size": "64"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "128",
+                    "batch_size": "32"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "64"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "60"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "56"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "32"
+                }
+            ]
+        }
+    ]
+}

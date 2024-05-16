@@ -1,0 +1,128 @@
+{
+    "scripts": [
+        {
+            "name": "Llama2-7B Measure",
+            "env": {
+                "QUANT_CONFIG": "../../../optimum-habana/examples/text-generation/quantization_config/maxabs_measure.json"
+            },
+            "path": "../../../optimum-habana/examples/text-generation/run_generation.py",
+            "default_arguments": [
+                "--model_name_or_path", "meta-llama/Llama-2-7b-hf",
+                "--use_hpu_graphs",
+                "--use_kv_cache",
+                "--reuse_cache",
+                "--limit_hpu_graphs",
+                "--bf16"
+            ],
+            "extra_arguments": [
+                {
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "1"
+                }
+            ]
+        },
+        {
+            "name": "Llama2-7B Quantization",
+            "env": {
+                "QUANT_CONFIG": "../../../optimum-habana/examples/text-generation/quantization_config/maxabs_quant.json"
+            },
+            "path": "../../../optimum-habana/examples/text-generation/run_generation.py",
+            "default_arguments": [
+                "--model_name_or_path", "meta-llama/Llama-2-7b-hf",
+                "--use_hpu_graphs",
+                "--use_kv_cache",
+                "--reuse_cache",
+                "--limit_hpu_graphs",
+                "--bf16",
+                "--fp8"
+            ],
+            "extra_arguments": [
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "1024"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "928"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "640"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "128",
+                    "batch_size": "256"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "2048",
+                    "batch_size": "120"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "2048",
+                    "batch_size": "64"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "128",
+                    "max_new_tokens": "2048",
+                    "batch_size": "32"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "128",
+                    "batch_size": "64"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "128",
+                    "batch_size": "32"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "64"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "60"
+                },
+                {
+                    "bucket_size": "128",
+                    "bucket_internal": "",
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
+                    "batch_size": "32"
+                }
+            ]
+        }
+    ]
+}
