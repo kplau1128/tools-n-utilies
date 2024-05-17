@@ -95,6 +95,11 @@
                 {
                     "max_input_tokens": "2048",
                     "max_new_tokens": "2048",
+                    "batch_size": "56"
+                },
+                {
+                    "max_input_tokens": "2048",
+                    "max_new_tokens": "2048",
                     "batch_size": "32"
                 }
             ]
